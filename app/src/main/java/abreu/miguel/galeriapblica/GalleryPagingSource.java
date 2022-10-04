@@ -3,6 +3,7 @@ package abreu.miguel.galeriapblica;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.paging.ListenableFuturePagingSource;
+import androidx.paging.PagingSource;
 import androidx.paging.PagingState;
 
 import com.google.common.util.concurrent.ListenableFuture;
@@ -32,7 +33,7 @@ public class GalleryPagingSource extends ListenableFuturePagingSource<Integer, I
 
     @NonNull
     @Override
-    public ListenableFuture<LoadResult<Integer, ImageData>> loadFuture(@NonNull LoadParams<Integer> loadParams) {
+    public ListenableFuture<PagingSource.LoadResult<Integer, ImageData>> loadFuture(@NonNull LoadParams<Integer> loadParams) {
         Integer nextPageNumber = loadParams.getKey();
         if (nextPageNumber == null) {
             nextPageNumber = 1;
